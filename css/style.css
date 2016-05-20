@@ -1,0 +1,55 @@
+body {
+	background-color: #777;
+}
+.pageContainer {
+    width: 1125px;
+    margin: 0px auto;
+}
+.mainNav,
+.fileExplorer {
+    /*border: 1px solid red;*/
+    background-color: #eee;
+    padding:15px;
+}
+.fileExplorer,
+.fileViewer {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 750px;
+}
+.mainNav {
+    margin: 15px 0 15px 0;
+    width: 100%;
+}
+.fileExplorer {    
+    margin-right: 15px;
+    width: 350px;
+}
+.fileExplorer ul li {
+    cursor: pointer;
+}
+.fileViewer{
+    position: relative;
+    background-color: #ddd;
+    width:755px;
+    padding: 5px;
+}
+.pdf-renderer {
+    width: 100%;
+}
+#outerContainer {
+    position: static;
+}
+#thumbnailView {
+    width: 200px;
+}
+.displayNone {
+    display: none !important;
+}
+#printWindow div {
+    width: 100% !important;
+}
+#printWindow .textLayer > div {
+    color: #000000;
+    
+}
