@@ -7076,9 +7076,10 @@ var PDFViewerApplication = {
     this.printing = true;
     this.forceRendering();
 
-    // var body = document.querySelector('body');
     // shawn
-    var body = document.getElementById('printContainer');
+    var body = document.querySelector('body');    
+    // var body = document.getElementById('printContainer');
+
     body.setAttribute('data-mozPrintCallback', true);
 
     if (!this.hasEqualPageSizes) {

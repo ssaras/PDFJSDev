@@ -15,7 +15,7 @@ body {
 .fileViewer {
     display: inline-block;
     vertical-align: top;
-    min-height: 1000px;
+    min-height: 750px;
 }
 .mainNav {
     margin: 15px 0 15px 0;
