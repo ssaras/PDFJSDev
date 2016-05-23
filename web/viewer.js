@@ -25,7 +25,7 @@
 
 'use strict';
 
-var DEFAULT_URL = 'Test-PDF-1.pdf';
+var DEFAULT_URL = 'compressed.tracemonkey-pldi-09.pdf';
 var DEFAULT_SCALE_DELTA = 1.1;
 var MIN_SCALE = 0.25;
 var MAX_SCALE = 10.0;
@@ -46,7 +46,7 @@ var mozL10n = document.mozL10n || document.webL10n;
 
 var CSS_UNITS = 96.0 / 72.0;
 var DEFAULT_SCALE_VALUE = 'auto';
-var DEFAULT_SCALE = 1.0;
+var DEFAULT_SCALE = 10.0;
 var UNKNOWN_SCALE = 0;
 var MAX_AUTO_SCALE = 1.25;
 var SCROLLBAR_PADDING = 40;
@@ -626,14 +626,11 @@ Preferences._readFromStorage = function (prefObj) {
 
   var print = window.print;
   window.print = function print() {
-    console.log("printing...");    
     if (canvases) {
       console.warn('Ignored window.print() because of a pending print job.');
       return;
     }
     try {
-      // shawn
-      // createPrintWindow();
       dispatchEvent('beforeprint');
     } finally {
       canvases = document.querySelectorAll('canvas');
@@ -641,21 +638,6 @@ Preferences._readFromStorage = function (prefObj) {
       next();
     }
   };
-
-  function createPrintWindow() {
-    console.log("creating print window...");
-    var currentPrintWindow = document.getElementById("viewer");
-    var newPrintWindow = document.createElement("div");
-    var printData = currentPrintWindow.innerHTML;
-
-    console.log(printData);
-
-    newPrintWindow.setAttribute("id", "printWindow");
-    newPrintWindow.setAttribute("class", "displayNone");
-    newPrintWindow.innerHTML = printData;
-    document.body.insertBefore(newPrintWindow, document.body.childNodes[0]);
-
-  }
 
   function dispatchEvent(eventType) {
     var event = document.createEvent('CustomEvent');
@@ -717,10 +699,7 @@ Preferences._readFromStorage = function (prefObj) {
     // Also intercept Cmd/Ctrl + Shift + P in Chrome and Opera
     if (event.keyCode === 80/*P*/ && (event.ctrlKey || event.metaKey) &&
         !event.altKey && (!event.shiftKey || window.chrome || window.opera)) {
-      // shawn
       window.print();
-      // shawn
-      // document.getElementById("viewer").print();
       if (hasAttachEvent) {
         // Only attachEvent can cancel Ctrl + P dialog in IE <=10
         // attachEvent is gone in IE11, so the dialog will re-appear in IE11.
@@ -7076,9 +7055,7 @@ var PDFViewerApplication = {
     this.printing = true;
     this.forceRendering();
 
-    // var body = document.querySelector('body');
-    // shawn
-    var body = document.getElementById('printContainer');
+    var body = document.querySelector('body');
     body.setAttribute('data-mozPrintCallback', true);
 
     if (!this.hasEqualPageSizes) {
