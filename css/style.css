@@ -1,9 +1,11 @@
 body {
 	background-color: #777;
+    height: 100%;
 }
 .pageContainer {
     width: 1125px;
     margin: 0px auto;
+    height: 83%;
 }
 .mainNav,
 .fileExplorer {
@@ -15,7 +17,7 @@ body {
 .fileViewer {
     display: inline-block;
     vertical-align: top;
-    min-height: 790px;
+    height: 100%;
 }
 .mainNav {
     margin: 15px 0 15px 0;

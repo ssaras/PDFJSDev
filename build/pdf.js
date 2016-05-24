@@ -16,6 +16,7 @@
 /* umdutils ignore */
 
 (function (root, factory) {
+  console.log("pdf.js started");
   'use strict';
   if (typeof define === 'function' && define.amd) {
 define('pdfjs-dist/build/pdf', ['exports'], factory);
