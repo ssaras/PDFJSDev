@@ -46,6 +46,9 @@
                 </li>
                 <li>
                     <a href="/?file=Test-PDF-3.pdf">Test-PDF-3.pdf</a>
+                </li> 
+                <li>
+                    <a href="/test.html">test.html</a>
                 </li>                
             </ul>
         </aside>
@@ -228,9 +231,8 @@
                         <menuitem id="contextPageRotateCw" label="Rotate Clockwise" data-l10n-id="page_rotate_cw"></menuitem>
                         <menuitem id="contextPageRotateCcw" label="Rotate Counter-Clockwise" data-l10n-id="page_rotate_ccw"></menuitem>
                     </menu>
-                    <!--////////////////////////////////////
-                                PDF.js Main Viewer
-                    ///////////////////////////////////////-->                    
+                    <!-- Annotation Canvas Overlay -->
+                    <canvas id="annotationCanvas" class="annotationCanvas"></canvas>
                     <div id="viewerContainer" tabindex="0">
                         <div id="viewer" class="pdfViewer"></div>
                     </div>
