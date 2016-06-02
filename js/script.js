@@ -2,14 +2,13 @@
  * script.js
  */
 
-var canvas = document.getElementById('annotationCanvas');
-var context = canvas.getContext('2d');
-var drawing = false;
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+ var canvas;
+ var context;
+ var drawing;
+ var pages = 0;
 
 function putPoint(e) {
-		
+	
 	var bx = e.target.getBoundingClientRect().top;
 	var by = e.target.getBoundingClientRect().left
 
@@ -47,12 +46,34 @@ function putPoint(e) {
 	context.arc(x, y, radius, startAngle, endAngle, antiClockwise);
 	context.fill();
 }
-canvas.addEventListener('mousedown', putPoint);
+
+function initializeAnnotationCanvas() {	
+	console.log("pdfPageCount: " + window.pdfPageCount);
+	console.log("pages: " + ++pages);
+	canvas = document.getElementById('annotationCanvas');
+	context = canvas.getContext('2d');
+	drawing = false;
+
+	// var viewer = document.getElementById('viewer');
+	var viewer = $('#viewer');
+	var page = $('.page');
+
+	var w = viewer.innerWidth();
+	var h = page.innerHeight() * window.pdfPageCount;
+
+	
+	console.log(page.innerHeight);
+
+	console.log(viewer);
+	console.log(w);
+	console.log(h);
+
+	canvas.width = w;
+	canvas.height = h;
+
+	canvas.addEventListener('mousedown', putPoint);
+}
 
 $(document).ready(function() {
-	var viewer = $('#viewer');
-	console.log(viewer);
-	viewer.each(function() {
-		console.log($(this));
-	});
+	
 });

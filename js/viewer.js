@@ -643,17 +643,17 @@ Preferences._readFromStorage = function (prefObj) {
   };
 
   function createPrintWindow() {
-    console.log("creating print window...");
-    var currentPrintWindow = document.getElementById("viewer");
-    var newPrintWindow = document.createElement("div");
-    var printData = currentPrintWindow.innerHTML;
+    // console.log("creating print window...");
+    // var currentPrintWindow = document.getElementById("viewer");
+    // var newPrintWindow = document.createElement("div");
+    // var printData = currentPrintWindow.innerHTML;
 
-    console.log(printData);
+    // console.log(printData);
 
-    newPrintWindow.setAttribute("id", "printWindow");
-    newPrintWindow.setAttribute("class", "displayNone");
-    newPrintWindow.innerHTML = printData;
-    document.body.insertBefore(newPrintWindow, document.body.childNodes[0]);
+    // newPrintWindow.setAttribute("id", "printWindow");
+    // newPrintWindow.setAttribute("class", "displayNone");
+    // newPrintWindow.innerHTML = printData;
+    // document.body.insertBefore(newPrintWindow, document.body.childNodes[0]);
 
   }
 
@@ -4034,7 +4034,7 @@ var PDFPageView = (function PDFPageViewClosure() {
               }
             );
           }
-        },
+        },       
         function pdfPageRenderError(error) {
           pageViewDrawCallback(error);
         }
@@ -6347,6 +6347,7 @@ var PDFViewerApplication = {
   },
 
   get pagesCount() {
+    window.pdfPageCount = this.pdfDocument.numPages;
     return this.pdfDocument.numPages;
   },
 
@@ -7539,6 +7540,9 @@ window.addEventListener('updateviewarea', function (evt) {
     }).catch(function() {
       // unable to write to storage
     });
+    // SHAWN
+    console.log('hi');
+    initializeAnnotationCanvas();   
   });
   var href =
     PDFViewerApplication.pdfLinkService.getAnchorUrl(location.pdfOpenParams);
