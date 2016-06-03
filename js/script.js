@@ -47,21 +47,21 @@ function putPoint(e) {
 	context.fill();
 }
 
-function initializeAnnotationCanvas() {	
-	console.log("pdfPageCount: " + window.pdfPageCount);
-	console.log("pages: " + ++pages);
-	canvas = document.getElementById('annotationCanvas');
-	context = canvas.getContext('2d');
-	drawing = false;
+function initializeAnnotationCanvas() {		
 
-	// var viewer = document.getElementById('viewer');
 	var viewer = $('#viewer');
 	var page = $('.page');
 
 	var w = viewer.innerWidth();
 	var h = page.innerHeight() * window.pdfPageCount;
-
 	
+	canvas = document.getElementById('annotationCanvas');
+	context = canvas.getContext('2d');
+	drawing = false;
+	
+	console.log("pdfPageCount: " + window.pdfPageCount);
+	console.log("pages: " + ++pages);
+
 	console.log(page.innerHeight);
 
 	console.log(viewer);
