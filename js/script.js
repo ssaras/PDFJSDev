@@ -4,7 +4,7 @@
 
  var canvas;
  var context;
- var drawing;
+ var rect, circle, isDown, origX, origY;
 
 function putPoint(e) {
 	var x = e.offsetX;;
@@ -25,23 +25,83 @@ function putPoint(e) {
 	context.fill();
 }
 
-function initializeAnnotationCanvas() {		
-	var viewer = $('#viewer');
-	var page = $('.page');
-	var w = viewer.innerWidth();
-	var h = page.innerHeight() * window.pdfPageCount;
-	
-	canvas = document.getElementById('annotationCanvas');
-	context = canvas.getContext('2d');
-	drawing = false;
-	
-	console.log("pdfPageCount: " + window.pdfPageCount);
-	console.log(viewer);
-	console.log(w);
-	console.log(h);
-
-	canvas.width = w;
-	canvas.height = h;
-
-	canvas.addEventListener('mousedown', putPoint);
+function drawRect() {
+	 // body...  
 }
+
+function initializeAnnotationCanvas() {
+	
+	/************************
+	 * Initialization Code
+	 ***********************/
+	var viewer = $('#viewer'),
+		page = $('.page');
+
+	var w = viewer.innerWidth(),
+		h = page.innerHeight() * window.pdfPageCount;
+
+	var canvasSave = document.getElementById('save-mode'),
+		canvasClear = document.getElementById('clear-mode'),
+	    canvasRedraw = document.getElementById('redraw-mode');
+	    canvasDrawRect = document.getElementById('draw-rect');
+
+	var cdc = ''; // store canvas data	
+
+	canvas = new fabric.Canvas('annotationCanvas', { selection: false });
+	
+	canvas.setDimensions({
+		width: w,
+		height: h
+	});
+
+	canvas.on('mouse:down', function(o){
+		isDown = true;
+		var pointer = canvas.getPointer(o.e);
+		origX = pointer.x;
+		origY = pointer.y;
+		console.log(origX);
+		console.log(origY);
+		rect = new fabric.Rect({
+			left: pointer.x,
+			top: pointer.y,
+			strokeWidth: 3,
+			stroke: 'red',
+			selectable: true,
+			opacity : 0.5
+	  	});
+	  	canvas.add(rect);
+	});
+
+	canvas.on('mouse:move', function(o){
+		if (!isDown) return;
+		var pointer = canvas.getPointer(o.e);
+		rect.set({ 
+			width: Math.abs(origX - pointer.x),
+			height: Math.abs(origY - pointer.y)
+		});
+		canvas.renderAll();
+	});
+
+	canvas.on('mouse:up', function(o){
+		isDown = false;
+	});
+
+	// ------------------------------------------ //
+			
+	// canvas.isDrawingMode = true;
+	canvasSave.onclick = function() {
+		canvas.isDrawingMode = false;
+		cdc = JSON.stringify(canvas);
+		console.log(cdc);
+	};
+	canvasClear.onclick = function() {
+		canvas.clear();
+	};
+	canvasRedraw.onclick = function() {
+		canvas.loadFromJSON(cdc);
+		canvas.renderAll();
+	};
+
+
+}
+

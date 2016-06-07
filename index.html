@@ -17,6 +17,7 @@
     <script src="js/pdf.js"></script>
     <script src="js/debugger.js"></script>    
     <!-- END PDF.js -->
+    <script type="text/javascript" src="js/fabric.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -220,11 +221,19 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div id="loadingBar">
                                 <div class="progress">
                                     <div class="glimmer">
                                     </div>
                                 </div>
+                            </div>
+                            <div id="annotationToolbar">
+                                <button id="save-mode" class="">Save</button>
+                                <button id="clear-mode" class="">Clear</button>
+                                <button id="redraw-mode" class="">Redraw</button>
+                                <button id="draw-rect" class="">Draw Rectangle</button>
+                                <button id="draw-circle" class="">Draw Circle</button>
                             </div>
                         </div>
                     </div>

@@ -33,6 +33,7 @@ var SCALE_SELECT_CONTAINER_PADDING = 8;
 var SCALE_SELECT_PADDING = 22;
 var PAGE_NUMBER_LOADING_INDICATOR = 'visiblePageIsLoading';
 var DISABLE_AUTO_FETCH_LOADING_BAR_TIMEOUT = 5000;
+var ANNOTATION_CANVAS_INITIALIZED = false;
 
 function configure(PDFJS) {
   PDFJS.imageResourcesPath = './images/';
@@ -7440,7 +7441,7 @@ document.addEventListener('DOMContentLoaded', webViewerLoad, true);
 document.addEventListener('pagerendered', function (e) {
   var pageNumber = e.detail.pageNumber;
   var pageIndex = pageNumber - 1;
-  var pageView = PDFViewerApplication.pdfViewer.getPageView(pageIndex);
+  var pageView = PDFViewerApplication.pdfViewer.getPageView(pageIndex);  
 
   if (PDFViewerApplication.sidebarOpen) {
     var thumbnailView = PDFViewerApplication.pdfThumbnailViewer.
@@ -7462,6 +7463,12 @@ document.addEventListener('pagerendered', function (e) {
   if (pageNumber === PDFViewerApplication.page) {
     var pageNumberInput = document.getElementById('pageNumber');
     pageNumberInput.classList.remove(PAGE_NUMBER_LOADING_INDICATOR);
+  }
+
+  // SHAWN
+  if (!ANNOTATION_CANVAS_INITIALIZED) {
+    ANNOTATION_CANVAS_INITIALIZED = true;
+    initializeAnnotationCanvas();    
   }
 
 }, true);
@@ -7539,10 +7546,7 @@ window.addEventListener('updateviewarea', function (evt) {
       'scrollTop': location.top
     }).catch(function() {
       // unable to write to storage
-    });
-    // SHAWN
-    console.log('hi');
-    initializeAnnotationCanvas();   
+    });  
   });
   var href =
     PDFViewerApplication.pdfLinkService.getAnchorUrl(location.pdfOpenParams);
