@@ -76,12 +76,14 @@ body {
 #toolbarContainer, 
 .findbar, 
 .secondaryToolbar {
-    height: 64px ;
+    /*height: 64px ;*/
 }
 #annotationToolbar {
-    border: 1px solid #777777;
+    /*border: 1px solid #777777;*/
+    background: #474747;
     width: 100%;
-    height: 32px;       
+    height: 34px;
+    padding: 5px;
 }
 #annotationBottomToolbar{
     z-index: 300;
