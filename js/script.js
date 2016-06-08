@@ -13,39 +13,19 @@ var canvas,
 	isMouseDown = false,
 	drawState = "SELECT"; //RECT, CIRC, LINE, FREE, SELECT
 
-
 /**
- * NOTE: Saved Canvas Data (scd)
- * Initial scd data is in js/scd.js
+ * NOTE: Initial scd (saved canvas data) is in js/scd.js
  */
 
 function saveCanvas() {
 	canvas.isDrawingMode = false;
-	scd = JSON.stringify(canvas);
+	scd = JSON.stringify(canvas); // save canvas data
 	console.log(scd);
 }
 
 function loadCanvas() {
 	canvas.loadFromJSON(scd);
 	canvas.renderAll();
-}
-
-function putPoint(e) {
-	var x = e.offsetX,
-		y = e.offsetY,
-		radius = 5,
-		startAngle = 0,
-		endAngle = Math.PI * 2,
-		antiClockwise = false;
-	
-	console.log(e);
-	console.log(e.target.getBoundingClientRect());
-	console.log('x: ' + x);
-	console.log('y: ' + y);
-	
-	context.beginPath();
-	context.arc(x, y, radius, startAngle, endAngle, antiClockwise);
-	context.fill();
 }
 
 function initRect(o) {	
