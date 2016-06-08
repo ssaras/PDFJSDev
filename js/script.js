@@ -11,7 +11,7 @@ var canvas,
 	origX,
 	origY,	
 	isMouseDown = false,
-	drawState = "LINE"; //RECT, CIRC, LINE, FREE
+	drawState = "FREE"; //RECT, CIRC, LINE, FREE
 
 
 
@@ -114,13 +114,13 @@ function initFree (o) {
 	 canvas.isDrawingMode = true;
 }
 
-function canvasSave() {
+function saveCanvas() {
 	canvas.isDrawingMode = false;
 	cdc = JSON.stringify(canvas);
 	console.log(cdc);
 }
 
-function canvasRedraw() {
+function loadCanvas() {
 	canvas.loadFromJSON(cdc);
 	canvas.renderAll();
 }
@@ -200,17 +200,14 @@ function initializeAnnotationCanvas() {
 		isMouseDown = false;
 	});
 
-	// ------------------------------------------ //
-			
-	// canvas.isDrawingMode = true;
 	canvasSave.onclick = function() {
-		canvasSave();
+		saveCanvas();
 	};
 	canvasClear.onclick = function() {
 		canvas.clear();
 	};
 	canvasRedraw.onclick = function() {
-		canvasRedraw();
+		loadCanvas();
 	};
 	canvasSetDrawState.click(function(e) {
 		drawState = $(this).attr('drawState');
