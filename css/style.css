@@ -86,6 +86,6 @@ body {
 #annotationBottomToolbar{
     z-index: 300;
     position: relative;
-    top: 660px;
-    left: 450px;
+    margin-top: 100%;
+    margin-left: 70%;
 }
