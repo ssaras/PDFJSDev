@@ -9,11 +9,26 @@ var canvas,
 	line,
 	free, 
 	origX,
-	origY,	
+	origY,
 	isMouseDown = false,
-	drawState = "FREE"; //RECT, CIRC, LINE, FREE
+	drawState = "SELECT"; //RECT, CIRC, LINE, FREE, SELECT
 
 
+/**
+ * NOTE: Saved Canvas Data (scd)
+ * Initial scd data is in js/scd.js
+ */
+
+function saveCanvas() {
+	canvas.isDrawingMode = false;
+	scd = JSON.stringify(canvas);
+	console.log(scd);
+}
+
+function loadCanvas() {
+	canvas.loadFromJSON(scd);
+	canvas.renderAll();
+}
 
 function putPoint(e) {
 	var x = e.offsetX,
@@ -114,15 +129,8 @@ function initFree (o) {
 	 canvas.isDrawingMode = true;
 }
 
-function saveCanvas() {
+function initSelect() {
 	canvas.isDrawingMode = false;
-	cdc = JSON.stringify(canvas);
-	console.log(cdc);
-}
-
-function loadCanvas() {
-	canvas.loadFromJSON(cdc);
-	canvas.renderAll();
 }
 
 function initDrawState (o) {
@@ -140,13 +148,16 @@ function initDrawState (o) {
 		case "FREE":
 			initFree(o);
 			break;
+		case "SELECT":
+			initSelect(o);
+			break;
 		default:
 			alert("Please Select a Drawing Method")
 			break;
 	}
 }
 
-function drawDrawState (o) {
+function renderDrawState (o) {
 	switch (drawState) {
 		case "RECT":
 			drawRect(o);
@@ -178,9 +189,7 @@ function initializeAnnotationCanvas() {
 		canvasClear = document.getElementById('clear-mode'),
 	    canvasRedraw = document.getElementById('redraw-mode'),
 	    canvasSetDrawState = $('.setDrawState');
-	    
-	var cdc = ''; // store canvas data	
-
+	
 	canvas = new fabric.Canvas('annotationCanvas', { selection: false });
 	
 	canvas.setDimensions({
@@ -193,7 +202,7 @@ function initializeAnnotationCanvas() {
 	});
 
 	canvas.on('mouse:move', function(o){
-		drawDrawState(o);
+		renderDrawState(o);
 	});
 
 	canvas.on('mouse:up', function(o){
