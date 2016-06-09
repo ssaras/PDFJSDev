@@ -2,61 +2,12 @@ body {
 	background-color: #777;
     height: 100%;
 }
-.pageContainer {
-    width: 980px;
-    margin: 0px auto;
-    height: 83%;
-}
-.mainNav,
-.fileExplorer {
-    /*border: 1px solid red;*/
-    background-color: #eee;
-    padding:10px;
-}
-.fileExplorer,
-.fileViewer {
-    display: inline-block;
-    vertical-align: top;
-    height: 800px;
-}
-.mainNav {
-    margin: 10px 0 10px 0;
-    width: 100%;
-}
-.fileExplorer {    
-    margin-right: 10px;
-    width: 290px;
-}
-.fileExplorer ul li {
-    cursor: pointer;
-}
-.fileViewer{
-    position: relative;
-    background-color: #ddd;
-    width:675px;
-    padding: 5px;
-}
-.pdf-renderer {
-    width: 100%;
-}
+
 #outerContainer {
     position: static;
 }
-#thumbnailView {
-    width: 200px;
-}
-.displayNone {
-    display: none !important;
-}
-#printWindow div {
-    width: 100% !important;
-}
-#printWindow .textLayer > div {
-    color: #000000;
-    
-}
 .annotationCanvas {
-    /*border: 1px solid red;*/
+    // border: 1px solid red;
     position: absolute;    
     z-index: 100;
     top: 32px;
@@ -83,7 +34,7 @@ body {
     background: #474747;
     width: 100%;
     height: 34px;
-    padding: 5px;
+    padding: 0px;
 }
 #annotationBottomToolbar{
     z-index: 300;
@@ -93,4 +44,14 @@ body {
 }
 #mainContainer {
     height: 100%;
+}
+#annotationLeftToolbar,
+#annotationRightToolbar {
+    display: inline-block;
+}
+#annotationLeftToolbar {
+    float: left;
+}
+#annotationRightToolbar {
+    float: right;
 }

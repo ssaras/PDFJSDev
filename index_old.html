@@ -12,33 +12,63 @@
     <link rel="stylesheet" href="css/viewer.css" />    
     <link rel="stylesheet" type="text/css" href="css/annotator.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <style type="text/css">
+        .pageContainer {
+            width: 980px;
+            margin: 0px auto;
+            height: 83%;
+        }
+        .mainNav,
+        .fileExplorer {
+            /*border: 1px solid red;*/
+            background-color: #eee;
+            padding:10px;
+        }
+        .fileExplorer,
+        .fileViewer {
+            display: inline-block;
+            vertical-align: top;
+            height: 800px;
+        }
+        .mainNav {
+            margin: 10px 0 10px 0;
+            width: 100%;
+        }
+        .fileExplorer {    
+            margin-right: 10px;
+            width: 290px;
+        }
+        .fileExplorer ul li {
+            cursor: pointer;
+        }
+        .fileViewer{
+            position: relative;
+            background-color: #ddd;
+            width:675px;
+            padding: 5px;
+        }
+        .pdf-renderer {
+            width: 100%;
+        }
+        #thumbnailView {
+            width: 200px;
+        }
+        .displayNone {
+            display: none !important;
+        }
+        #printWindow div {
+            width: 100% !important;
+        }
+        #printWindow .textLayer > div {
+            color: #000000;    
+        }
+    </style>
 </head>
 
 <body tabindex="1" class="loadingInProgress">
     <div class="pageContainer">
-        <nav class="mainNav2 navbar navbar-inverse navbar-fixed-top"">
-            <div class="container-fluid">
-                <div class="logoContainer2 navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="/" class="navbar-brand"><img src="http://placehold.it/200x100" /></a>
-                <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-                      <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Help</a></li>
-                </ul>
-                <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
-                </form>
-                </div>
-            </div>
-            </div>            
+        <nav class="mainNav">            
+            <a href="/" class="navbar-brand"><img src="http://placehold.it/200x100" /></a>                           
         </nav>
         <aside class="fileExplorer">            
             <!-- <h3>Development Protoypes</h3>
