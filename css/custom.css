@@ -1,4 +1,7 @@
-
+a:hover,
+a:active, {
+	color: #1a931c;
+}
 #cmacs-logo {
 	color: #000000;
 	font-size: 36px;
