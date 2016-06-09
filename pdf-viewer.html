@@ -35,8 +35,8 @@ See https://github.com/adobe-type-tools/cmap-resources
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 		<script src="js/compatibility.js"></script>    
 		<script src="js/l10n.js"></script>
-		<script src="js/\pdf.js"></script>
-		<script src="js.debugger.js"></script>
+		<script src="js/pdf.js"></script>
+		<script src="js/debugger.js"></script>
 		<script type="text/javascript" src="js/fabric.js"></script>
 		<script src="js/annotator-full.min.js" type="text/javascript"></script>
 		<script src="js/scd.js" type="text/javascript"></script>
@@ -240,6 +240,11 @@ See https://github.com/adobe-type-tools/cmap-resources
                             <button id="draw-circ"  drawState="CIRC" class="setDrawState">Draw Circle</button>
                             <button id="draw-line"  drawState="LINE" class="setDrawState">Draw Line</button>
                             <button id="selection-mode"  drawState="SELECT" class="setDrawState">No Draw Mode</button>
+                            <div style="float: right;">
+			                    <button id="save-mode" class="">Save</button>
+			                    <button id="clear-mode" class="">Clear</button>
+			                    <button id="redraw-mode" class="">Load</button>    
+			                </div>
                         </div>
 					</div>
 				</div>
@@ -259,11 +264,6 @@ See https://github.com/adobe-type-tools/cmap-resources
 					<canvas id="annotationCanvas" class="annotationCanvas" ></canvas>
 					<div id="viewer" class="pdfViewer"></div>
 				</div>
-				<div id="annotationBottomToolbar">
-                    <button id="save-mode" class="">Save</button>
-                    <button id="clear-mode" class="">Clear</button>
-                    <button id="redraw-mode" class="">Load</button>    
-                </div>
 				<div id="errorWrapper" hidden='true'>
 					<div id="errorMessageLeft">
 						<span id="errorMessage"></span>
