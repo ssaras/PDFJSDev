@@ -19,13 +19,20 @@ var canvas,
 
 function saveCanvas() {
 	canvas.isDrawingMode = false;
+	drawState = "SELECT";
 	scd = JSON.stringify(canvas); // save canvas data
 	console.log(scd);
+}
+
+function clearCanvas() {
+	canvas.clear();
+	drawState = "SELECT";
 }
 
 function loadCanvas() {
 	canvas.loadFromJSON(scd);
 	canvas.renderAll();
+	drawState = "SELECT";
 }
 
 function initRect(o) {	
@@ -193,7 +200,7 @@ function initializeAnnotationCanvas() {
 		saveCanvas();
 	};
 	canvasClear.onclick = function() {
-		canvas.clear();
+		clearCanvas();
 	};
 	canvasRedraw.onclick = function() {
 		loadCanvas();
