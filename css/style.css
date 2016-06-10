@@ -7,22 +7,23 @@ body {
     position: static;
 }
 .annotationCanvas {
-    // border: 1px solid red;
+    border: 1px solid red;
     position: absolute;    
     z-index: 100;
     top: 32px;
     right: 0;
     bottom: 0;
     left: 0;
-    /*overflow: auto;*/
+    width: 100% !important;
 }
 .canvas-container {
     position: absolute !important;
-    /*top: 32px;*/
+    width: 100% !important;
 }
 #viewerContainer {
     z-index: 200;
     top: 64px;
+    width: 100%;
 }
 #toolbarContainer, 
 .findbar, 

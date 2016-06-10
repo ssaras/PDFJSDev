@@ -30,6 +30,7 @@ function clearCanvas() {
 }
 
 function loadCanvas() {
+	console.log(scd);
 	canvas.loadFromJSON(scd);
 	canvas.renderAll();
 	drawState = "SELECT";
@@ -180,7 +181,6 @@ function initializeAnnotationCanvas() {
 	canvas = new fabric.Canvas('annotationCanvas', { selection: false });
 	
 	canvas.setDimensions({
-		width: w,
 		height: h
 	});
 
