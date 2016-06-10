@@ -14,16 +14,16 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    width: 100% !important;
+    // width: 100% !important;
 }
 .canvas-container {
     position: absolute !important;
-    width: 100% !important;
+    // width: 100% !important;
 }
 #viewerContainer {
     z-index: 200;
     top: 64px;
-    width: 100%;
+    // width: 100%;
 }
 #toolbarContainer, 
 .findbar, 

@@ -181,6 +181,7 @@ function initializeAnnotationCanvas() {
 	canvas = new fabric.Canvas('annotationCanvas', { selection: false });
 	
 	canvas.setDimensions({
+		width: w,
 		height: h
 	});
 
