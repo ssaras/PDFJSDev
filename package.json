@@ -1,0 +1,26 @@
+{
+  "name": "pdfjs_dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssaras/PDFJSDev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssaras/PDFJSDev/issues"
+  },
+  "homepage": "https://github.com/ssaras/PDFJSDev#readme",
+  "engines": {
+    "node": "4.4.4",
+    "npm": "2.15.1"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
