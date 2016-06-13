@@ -7,7 +7,7 @@ body {
     position: static;
 }
 .annotationCanvas {
-    border: 1px solid red;
+    // border: 1px solid red;
     position: absolute;    
     z-index: 100;
     top: 32px;
