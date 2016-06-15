@@ -178,7 +178,10 @@ function initializeAnnotationCanvas() {
 	    canvasRedraw = document.getElementById('redraw-mode'),
 	    canvasSetDrawState = $('.setDrawState');
 	
-	canvas = new fabric.Canvas('annotationCanvas', { selection: true });
+	canvas = new fabric.Canvas('annotationCanvas', { 
+		selection: true,
+		allowTouchScrolling : true 
+	});
 	
 	canvas.setDimensions({
 		width: w,
