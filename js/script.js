@@ -162,11 +162,8 @@ function renderDrawState (o) {
 	}
 }
 
-function initializeAnnotationCanvas() {
-	
-	/************************
-	 * Initialization Code
-	 ***********************/
+function initializeFabricJS() {
+
 	var viewer = $('#viewer'),
 		page = $('.page');
 
@@ -177,7 +174,7 @@ function initializeAnnotationCanvas() {
 		canvasClear = document.getElementById('clear-mode'),
 	    canvasRedraw = document.getElementById('redraw-mode'),
 	    canvasSetDrawState = $('.setDrawState');
-	
+		
 	canvas = new fabric.Canvas('annotationCanvas', { 
 		selection: true,
 		allowTouchScrolling : true 
@@ -215,3 +212,6 @@ function initializeAnnotationCanvas() {
 	});
 }
 
+function initializeAnnotations() {	
+	initializeFabricJS();
+}

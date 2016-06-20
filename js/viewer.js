@@ -7468,7 +7468,7 @@ document.addEventListener('pagerendered', function (e) {
   // SHAWN
   if (!ANNOTATION_CANVAS_INITIALIZED) {
     ANNOTATION_CANVAS_INITIALIZED = true;
-    initializeAnnotationCanvas();    
+    // initializeAnnotationCanvas();
   }
 
 }, true);
