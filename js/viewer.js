@@ -7466,9 +7466,9 @@ document.addEventListener('pagerendered', function (e) {
   }
 
   // SHAWN
-  if (!ANNOTATION_CANVAS_INITIALIZED) {
+  if (!ANNOTATION_CANVAS_INITIALIZED && typeof(initializeAnnotations) == "function") {
     ANNOTATION_CANVAS_INITIALIZED = true;
-    // initializeAnnotationCanvas();
+    initializeAnnotations();
   }
 
 }, true);

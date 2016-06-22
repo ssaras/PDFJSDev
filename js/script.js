@@ -173,7 +173,11 @@ function initializeFabricJS() {
 	var canvasSave = document.getElementById('save-mode'),
 		canvasClear = document.getElementById('clear-mode'),
 	    canvasRedraw = document.getElementById('redraw-mode'),
-	    canvasSetDrawState = $('.setDrawState');
+	    canvasSetDrawState = $('.setDrawState')
+	    toggleCommentState = $('.toggleCommentState'),
+	    toggleAnnotationState = $('.toggleAnnotationState')
+	    annotationCanvasId = $('#annotationCanvas'),
+	    annotationCanvasClass = $('.annotationCanvas');
 		
 	canvas = new fabric.Canvas('annotationCanvas', { 
 		selection: true,
@@ -206,12 +210,28 @@ function initializeFabricJS() {
 	canvasRedraw.onclick = function() {
 		loadCanvas();
 	};
-	canvasSetDrawState.click(function(e) {
+	canvasSetDrawState.click(function() {
 		drawState = $(this).attr('drawState');
 		console.log(drawState);
 	});
+	toggleCommentState.click(function() {
+		$('#annotationCanvas').hide();
+		$('.annotationCanvas').hide();
+	});
+	toggleAnnotationState.click(function() {
+		$('#annotationCanvas').show();
+		$('.annotationCanvas').show();
+	})
+}
+
+function initializeAnnotatorJS() {
+	var app = new annotator.App();
+	app.include(annotator.ui.main);
+	app.include(annotator.storage.http);
+	app.start();
 }
 
 function initializeAnnotations() {	
 	initializeFabricJS();
+	initializeAnnotatorJS();
 }
