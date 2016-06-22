@@ -123,6 +123,7 @@ function initSelect() {
 
 function initDrawState (o) {
 	canvas.isDrawingMode = false;
+	canvas.selection = false;
 	switch (drawState) {
 		case "RECT":
 			initRect(o);

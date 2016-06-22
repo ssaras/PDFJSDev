@@ -1,4 +1,4 @@
-var scd = JSON.stringify({
+{
 	"objects": [
 		{
 			"type":"rect",
@@ -208,4 +208,4 @@ var scd = JSON.stringify({
 		}
 	],
 	"background":""
-});
+}
