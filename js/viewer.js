@@ -7466,9 +7466,28 @@ document.addEventListener('pagerendered', function (e) {
   }
 
   // SHAWN
-  if (!ANNOTATION_CANVAS_INITIALIZED && typeof(initializeAnnotations) == "function") {
+  
+  var pageWidth = PDFViewerApplication.pdfViewer._pages[pageIndex].width;
+  var pageHeight = PDFViewerApplication.pdfViewer._pages[pageIndex].height;
+
+  console.log(" page rendered ");
+  console.log("---------------");
+  console.log("x: " + pageWidth);
+  console.log("y: " + pageHeight);
+  console.log(pageNumber);
+
+
+
+  createCanvas(PDFViewerApplication);
+  if (!ANNOTATION_CANVAS_INITIALIZED /* && typeof(initializeAnnotations) == "function" */) {
     ANNOTATION_CANVAS_INITIALIZED = true;
-    initializeAnnotations();
+    // initializeAnnotations();
+    // console.log("PDFJS:\n");  
+    // console.log("------");
+    // console.log(PDFJS);    
+    console.log("PDFViewerApplication:\n");
+    console.log("---------------------");
+    console.log(PDFViewerApplication);
   }
 
 }, true);
