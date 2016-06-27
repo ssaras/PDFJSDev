@@ -7480,15 +7480,15 @@ document.addEventListener('pagerendered', function (e) {
     pageNumber: pageNumber
   }
 
-  new AnnotationCanvas(annotationCanvasSettings).echoX();
-  // test.echoX();
+  var test = new AnnotationCanvas(annotationCanvasSettings);
+  test.createCanvas();
+  test.echoSettings();
   
   if (!ANNOTATION_CANVAS_INITIALIZED /* && typeof(initializeAnnotations) == "function" */) {
     ANNOTATION_CANVAS_INITIALIZED = true;
-    // initializeAnnotations();
-    
-    LOG_PDFJS(PDFJS);
-    LOG_PDFViewerApplication(PDFViewerApplication);
+    // initializeAnnotations();    
+    // LOG_PDFJS(PDFJS);
+    // LOG_PDFViewerApplication(PDFViewerApplication);
   }
 
 }, true);

@@ -180,7 +180,7 @@ function initializeFabricJS() {
 	    annotationCanvasId = $('#annotationCanvas'),
 	    annotationCanvasClass = $('.annotationCanvas');
 		
-	canvas = new fabric.Canvas('annotationCanvas', { 
+	canvas = new fabric.Canvas('annotationCanvasClone', { 
 		selection: true,
 		allowTouchScrolling : true 
 	});

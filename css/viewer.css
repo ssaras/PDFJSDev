@@ -2114,10 +2114,10 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 /* SHAWN STYLES */
 
 .annotationCanvas {
-    /*border: 1px solid red;*/
+    border: 1px solid red;
     position: absolute;    
     z-index: 100;
-    top: 32px;
+    // top: 32px;
     right: 0;
     bottom: 0;
     left: 0;
