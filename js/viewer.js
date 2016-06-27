@@ -7480,8 +7480,8 @@ document.addEventListener('pagerendered', function (e) {
     pageNumber: pageNumber
   }
 
-  var test = new AnnotationCanvas(annotationCanvasSettings);
-  test.echoX();
+  new AnnotationCanvas(annotationCanvasSettings).echoX();
+  // test.echoX();
   
   if (!ANNOTATION_CANVAS_INITIALIZED /* && typeof(initializeAnnotations) == "function" */) {
     ANNOTATION_CANVAS_INITIALIZED = true;
