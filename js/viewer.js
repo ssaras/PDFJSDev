@@ -948,6 +948,7 @@ var ViewHistory = (function ViewHistoryClosure() {
  * also sets up the appropriate events for the controls. Actual searching
  * is done by PDFFindController.
  */
+// shawn
 var PDFFindBar = (function PDFFindBarClosure() {
   function PDFFindBar(options) {
     this.opened = false;
@@ -1107,7 +1108,7 @@ var PDFFindBar = (function PDFFindBarClosure() {
         this.open();
       }
     }
-  };
+  };  
   return PDFFindBar;
 })();
 
@@ -4536,6 +4537,7 @@ var AnnotationLayerBuilder = (function AnnotationLayerBuilderClosure() {
  * @constructor
  * @implements IPDFAnnotationLayerFactory
  */
+ // shawn
 function DefaultAnnotationLayerFactory() {}
 DefaultAnnotationLayerFactory.prototype = {
   /**
@@ -6175,7 +6177,7 @@ var PDFViewerApplication = {
       integratedFind: this.supportsIntegratedFind
     });
     this.pdfViewer.setFindController(this.findController);
-
+    // shawn
     this.findBar = new PDFFindBar({
       bar: document.getElementById('findbar'),
       toggleButton: document.getElementById('viewFind'),
@@ -7470,24 +7472,23 @@ document.addEventListener('pagerendered', function (e) {
   var pageWidth = PDFViewerApplication.pdfViewer._pages[pageIndex].width;
   var pageHeight = PDFViewerApplication.pdfViewer._pages[pageIndex].height;
 
-  console.log(" page rendered ");
-  console.log("---------------");
-  console.log("x: " + pageWidth);
-  console.log("y: " + pageHeight);
-  console.log(pageNumber);
+  // LOG_PDFPageRendered(pageWidth, pageHeight, pageNumber)
 
+  var annotationCanvasSettings = {
+    x: pageWidth,
+    y: pageHeight,
+    pageNumber: pageNumber
+  }
 
-
-  createCanvas(PDFViewerApplication);
+  var test = new AnnotationCanvas(annotationCanvasSettings);
+  test.echoX();
+  
   if (!ANNOTATION_CANVAS_INITIALIZED /* && typeof(initializeAnnotations) == "function" */) {
     ANNOTATION_CANVAS_INITIALIZED = true;
     // initializeAnnotations();
-    // console.log("PDFJS:\n");  
-    // console.log("------");
-    // console.log(PDFJS);    
-    console.log("PDFViewerApplication:\n");
-    console.log("---------------------");
-    console.log(PDFViewerApplication);
+    
+    LOG_PDFJS(PDFJS);
+    LOG_PDFViewerApplication(PDFViewerApplication);
   }
 
 }, true);
