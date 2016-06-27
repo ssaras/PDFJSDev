@@ -20,7 +20,6 @@ var AnnotationCanvas = (function AnnotationCanvasClosure() {
 		this.x = settings.x;
 		this.y = settings.y;
 		this.pageNumber = settings.pageNumber;
-		this.canvasClone = document.getElementById('annotationCanvasClone');
 	}
 
 	AnnotationCanvas.prototype = {
@@ -34,7 +33,9 @@ var AnnotationCanvas = (function AnnotationCanvasClosure() {
 			console.log(this.pageNumber);
 		},
         createCanvas: function AnnotationCanvas_createCanvas() {
-
+            var annotationCanvas = document.createElement('canvas');
+            annotationCanvas.setAttribute('id', 'annotationCanvasPage_' + this.pagenumber);
+            
         }
 	};
 	return AnnotationCanvas;
