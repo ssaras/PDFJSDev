@@ -21,38 +21,47 @@ var AnnotationCanvas = (function AnnotationCanvasClosure() {
 		this.x = settings.x;
 		this.y = settings.y;
 		this.pageNumber = settings.pageNumber;
+		this.canvasId = 'annotationCanvasPage_' + this.pageNumber;
 		this.newCanvas = document.createElement('canvas');
 		this.canvasContainer = document.getElementById('annotationCanvasContainer');
 	}
 
 	AnnotationCanvas.prototype = {
-		echoSettings: function() {
+		constructor: AnnotationCanvas, 
+		echoSettings: function AnnotationCanvas_echoSettings() {
 			console.log(this.settings);
 		},
-		echoX: function newCanvas_echoX() {
+		echoX: function AnnotationCanvas_echoX() {
 			console.log(this.x);
 		},
-		echoY: function newCanvas_echoY() {
+		echoY: function AnnotationCanvas_echoY() {
 			console.log(this.y);
 		},
-		echoPageNumber: function newCanvas_echoPageNumber() {
+		echoPageNumber: function AnnotationCanvas_echoPageNumber() {
 			console.log(this.pageNumber);
 		},
-        createCanvas: function newCanvas_createCanvas() {
-        	var canvasId = 'newCanvasPage_' + this.pageNumber;
-        	// var
-            this.newCanvas.setAttribute('id', canvasId);
-            this.newCanvas.setAttribute('class', 'newCanvas');
+        createCanvas: function AnnotationCanvas_createCanvas() {
+            
+            // Initialize and append canvas
+            this.newCanvas.setAttribute('id', this.canvasId);
+            this.newCanvas.setAttribute('class', 'annotationCanvas');
             this.canvasContainer.appendChild(this.newCanvas);
-            this.newCanvas = new fabric.Canvas('canvasId', { 
+            
+            // Initialize FabricJS
+            this.newCanvas = new fabric.Canvas(this.canvasId, { 
 				selection: true,
 				allowTouchScrolling : true,
 				isDrawingMode: true
 			});
+			
+			// Set canvas dimensions
 			this.newCanvas.setDimensions({
 				width: this.x,
 				height: this.y
 			});
+
+			// Hey, it worked!
+			console.log("Page " + this.pageNumber + " rendered");
         }
 	};
 	return AnnotationCanvas;

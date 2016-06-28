@@ -7474,15 +7474,17 @@ document.addEventListener('pagerendered', function (e) {
 
   // LOG_PDFPageRendered(pageWidth, pageHeight, pageNumber)
 
-  var annotationCanvasSettings = {
+  var canvasSettings = {
     x: pageWidth,
     y: pageHeight,
     pageNumber: pageNumber
   }
 
-  var test = new AnnotationCanvas(annotationCanvasSettings);
-  test.createCanvas();
-  test.echoSettings();
+  new AnnotationCanvas(canvasSettings).createCanvas();
+
+  // var test = new AnnotationCanvas(canvasSettings);
+  // test.createCanvas();
+  // test.echoSettings();
   
   if (!ANNOTATION_CANVAS_INITIALIZED /* && typeof(initializeAnnotations) == "function" */) {
     ANNOTATION_CANVAS_INITIALIZED = true;

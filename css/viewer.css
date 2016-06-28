@@ -2115,15 +2115,17 @@ html[dir='rtl'] #documentPropertiesOverlay .row > * {
 
 .annotationCanvas {
     border: 1px solid red;
-    position: absolute;    
+    position: absolute;
+    // display: block;  
     z-index: 100;
     // top: 32px;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    // right: 0;
+    // bottom: 0;
+    // left: 0;
 }
 .canvas-container {
     position: absolute !important;
+    top: 32px !important;
 }
 #annotationToolbar {
     /*border: 1px solid #777777;*/
