@@ -234,5 +234,5 @@ function initializeAnnotatorJS() {
 
 function initializeAnnotations() {	
 	initializeFabricJS();
-	initializeAnnotatorJS();
+	// initializeAnnotatorJS();
 }
