@@ -60,6 +60,8 @@ var AnnotationCanvas = (function AnnotationCanvasClosure() {
 				height: this.y
 			});
 
+
+
 			// Hey, it worked!
 			console.log("Page " + this.pageNumber + " rendered");
         }
